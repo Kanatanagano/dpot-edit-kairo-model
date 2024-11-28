@@ -1,20 +1,20 @@
-"use client"
+'use client';
 
-import { useMDXComponent } from "next-contentlayer/hooks"
-import Image from "next/image"
-import Callout from "../callout"
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import Image from 'next/image';
+import Callout from '../callout';
 
 const Components = {
   Image,
   Callout,
-}
+};
 
-export default function Mdx({code}: { code: string }) {
-  const Component = useMDXComponent(code)
+export default function Mdx({ code }: { code: string }) {
+  const Component = useMDXComponent(code);
 
   return (
     <div className="prose max-w-full">
-      <Component components={Components}/>
+      <Component components={Components} />
     </div>
-  )
+  );
 }
