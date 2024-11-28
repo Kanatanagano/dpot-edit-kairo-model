@@ -12,6 +12,26 @@ async function getPostGromSlug(slug: string) {
   return post;
 }
 
+export async function generatedMatadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const page = await getPostGromSlug(params.slug);
+
+  if (!page) {
+    return {};
+  }
+
+  return {
+    title: page.title,
+    description: page.description,
+    openGraph: {
+      title: 'article',
+      desription: page.description,
+    },
+  };
+}
 export default async function PostPage({
   params,
 }: {
@@ -41,11 +61,15 @@ export default async function PostPage({
           className="my-8 border rounded-md bg-muted"
         />
       )}
-      <Mdx code={post.body.code}/>
-      <hr className='mt-12'/>
-      <div className='py-6 text-center lg:py-10'>
-        <Link href={"/blog"} className={cn(buttonVariants({ variant: "secondary"}))}>
-        すべて見る</Link>
+      <Mdx code={post.body.code} />
+      <hr className="mt-12" />
+      <div className="py-6 text-center lg:py-10">
+        <Link
+          href={'/blog'}
+          className={cn(buttonVariants({ variant: 'secondary' }))}
+        >
+          すべて見る
+        </Link>
       </div>
     </article>
   );

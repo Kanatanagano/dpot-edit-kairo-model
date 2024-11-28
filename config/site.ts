@@ -7,6 +7,6 @@ export const siteConfig: SiteConfig = {
   ogImg: '',
   links: {
     x: 'https://x.com',
-    github: 'https://github.com',
+    github: 'https://github.com/Kanatanagano/post-edit-kairo-model',
   },
 };
