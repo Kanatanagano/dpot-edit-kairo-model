@@ -1,8 +1,12 @@
+"use client";
+
+
 import { cn } from '@/lib/utils';
 import { Input } from './input';
 import { Label } from './label';
 import { buttonVariants } from './button';
 import { Icon } from '../icon';
+import { signIn } from 'next-auth/react';
 
 export default function UserAuthForm() {
   return (
@@ -28,7 +32,8 @@ export default function UserAuthForm() {
         </div>
       </div>
 
-      <button className={cn(buttonVariants({ variant: 'outline' }))}>
+      <button className={cn(buttonVariants({ variant: 'outline' }))} 
+      onClick={() => signIn("github")}>
         <Icon.github/>
         GitHub
       </button>
