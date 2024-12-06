@@ -1,6 +1,6 @@
-import { NextAuthOptions } from "next-auth";
-import Github from "next-auth/providers/github";
-import Google from "next-auth/providers/google";
+import { NextAuthOptions } from 'next-auth';
+import Github from 'next-auth/providers/github';
+import Google from 'next-auth/providers/google';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -16,11 +16,11 @@ export const authOptions: NextAuthOptions = {
       */
   ],
   pages: {
-    signIn: "/login",
+    signIn: '/login',
   },
   callbacks: {
-    async session({token, session}) {
-      if(token) {
+    async session({ token, session }) {
+      if (token) {
         session.user.id = token.id;
         session.user.name = token.name;
         session.user.email = token.email;
@@ -28,6 +28,6 @@ export const authOptions: NextAuthOptions = {
       }
 
       return session;
-    }
-  }
+    },
+  },
 };
