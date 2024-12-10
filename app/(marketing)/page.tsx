@@ -18,13 +18,13 @@ export default function IndexPages() {
           <div className="space-x-4">
             <Link
               href={'/login'}
-              className={cn(buttonVariants({ size: 'lg' }))}
+              className={cn(buttonVariants({ size: 'lg', variant:"blue" }))}
             >
               始める
             </Link>
             <Link
               href={siteConfig.links.github}
-              className={cn(buttonVariants({ size: 'lg', variant: 'outline' }))}
+              className={cn(buttonVariants({ size: 'lg' }))}
               target="_blank"
               rel="noreferrer"
             >
@@ -36,7 +36,7 @@ export default function IndexPages() {
 
       <section
         id="features"
-        className="container mx-auto py-8 md:py-12 lg:py-24 bg-slate-50 space-y-6"
+        className="container mx-auto py-8 md:py-12 lg:py-24  bg-sky-50 space-y-6"
       >
         <div className="text-center space-y-6 max-w-[58rem] mx-auto">
           <h2 className="font-extrabold text-3xl md:text-6xl">
@@ -193,20 +193,6 @@ export default function IndexPages() {
             Caliculatorは投稿すると自分の作った回路図を保存し回路計算を行うことができるアプリケーションです。
             <br />
             またshadcnによるMarkdown形式でドキュメントも書くことができます。
-          </p>
-        </div>
-      </section>
-
-      <section
-        id="contaxt"
-        className="container py-8 md:py-12 lg:py-24 mx-auto"
-      >
-        <div className="max-w-[58rem] mx-auto text-center space-y-3">
-          <h2 className="font-extrabold text-3xl md:text-6xl">Contact Me</h2>
-          <p className="text-muted-foreground sm:text-lg sm:leading-7">
-            もし何か質問があれば、お気軽にご連絡ください。
-            <br />
-            お問い合わせはこちらから
           </p>
         </div>
       </section>

@@ -19,7 +19,7 @@ export default function MarketingLayout({
             <Link
               href={'/login'}
               className={cn(
-                buttonVariants({ variant: 'secondary', size: 'sm' }),
+                buttonVariants({ variant: 'blue', size: 'sm' }),
                 'px-4'
               )}
             >
