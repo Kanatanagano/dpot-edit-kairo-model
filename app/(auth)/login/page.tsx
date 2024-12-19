@@ -10,7 +10,7 @@ export default function Login() {
             Welcome Back
           </h1>
           <p className="text-sm text-muted-foreground">
-            メールアドレスを入力してログインできます
+            GoogleかGithubでログイン
           </p>
         </div>
         <UserAuthForm />

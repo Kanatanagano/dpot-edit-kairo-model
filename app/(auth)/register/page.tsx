@@ -23,16 +23,10 @@ export default function Register() {
               アカウントの作成
             </h1>
             <p className="text-sm text-muted-foreground">
-              googleかgithubでアカウントを作成できます.メールアドレスはまだ実装
+              googleかgithubでアカウントを作成できます.
             </p>
           </div>
           <UserAuthForm />
-
-          <p className="text-muted-foreground px-8 text-center text-sm">
-            <Link href={'/privacy'} className="underline underline-offset-8">
-              プライバシーポリシーに同意する
-            </Link>
-          </p>
         </div>
       </div>
   );
