@@ -7,10 +7,6 @@ export const marketingConfig: MarketingConfig = {
       href: '#feature',
     },
     {
-      title: 'ブログ',
-      href: '/blog',
-    },
-    {
       title: '価格',
       href: 'https://twitter.com/xxxx',
     },
