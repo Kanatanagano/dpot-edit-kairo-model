@@ -58,7 +58,7 @@ export function ParallelCircuitDiagram({
       />
 
       {/* DC Voltage source */}
-      <rect x="142" y="100" width="15" height="60" fill="white"/>
+      <rect x="142" y="100" width="15" height="60" fill="white" />
       <g transform={`rotate(-90 ${circuitWidth / 2} ${bottomWireY})`}>
         <line
           x1={circuitWidth / 2 - 10}
@@ -77,7 +77,7 @@ export function ParallelCircuitDiagram({
           strokeWidth="2"
         />
       </g>
-      
+
       {/* Voltage value and type text (not rotated) */}
       <text
         x={circuitWidth / 2}
@@ -87,8 +87,6 @@ export function ParallelCircuitDiagram({
       >
         {voltageValue}V {voltageType}
       </text>
-
-
 
       {/* Circuit elements */}
       {elements.map((element, index) => (

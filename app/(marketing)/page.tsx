@@ -18,7 +18,7 @@ export default function IndexPages() {
           <div className="space-x-4">
             <Link
               href={'/login'}
-              className={cn(buttonVariants({ size: 'lg', variant:"blue" }))}
+              className={cn(buttonVariants({ size: 'lg', variant: 'blue' }))}
             >
               始める
             </Link>

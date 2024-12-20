@@ -30,7 +30,7 @@ export function ElementForm({
   const unit = type === 'resistor' ? 'Ω' : type === 'inductor' ? 'H' : 'F';
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col justify-center items-center space-y-4">
       <Select
         value={type}
         onChange={onTypeChange}
@@ -44,10 +44,11 @@ export function ElementForm({
         placeholder="値"
         label="値"
       />
-      <div className="text-sm text-gray-500 mb-2">単位: {unit}</div>
+      <div className="text-sm text-gray-500 mb-2">単位 {unit}</div>
       <Button onClick={onAdd} disabled={disabled} icon={PlusCircle}>
         素子を追加
       </Button>
+
     </div>
   );
 }

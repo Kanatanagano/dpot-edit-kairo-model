@@ -23,7 +23,7 @@ export function StrateCircuitDiagram({
   return (
     <svg
       viewBox={`0 0 ${circuitWidth} ${circuitHeight}`}
-      className="w-full h-full"
+      className="w-full h-auto"
     >
       {/* Top wire */}
       <path
@@ -58,7 +58,7 @@ export function StrateCircuitDiagram({
       />
 
       {/* DC Voltage source */}
-      <rect x="142" y="100" width="15" height="60" fill="white"/>
+      <rect x="142" y="100" width="15" height="60" fill="white" />
       <g transform={`rotate(-90 ${circuitWidth / 2} ${bottomWireY})`}>
         <line
           x1={circuitWidth / 2 - 10}
@@ -77,7 +77,7 @@ export function StrateCircuitDiagram({
           strokeWidth="2"
         />
       </g>
-      
+
       {/* Voltage value and type text (not rotated) */}
       <text
         x={circuitWidth / 2}
@@ -87,8 +87,6 @@ export function StrateCircuitDiagram({
       >
         {voltageValue}V {voltageType}
       </text>
-
-
 
       {/* Circuit elements */}
       {elements.map((element, index) => (

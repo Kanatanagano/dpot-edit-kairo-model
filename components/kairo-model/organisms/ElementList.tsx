@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { X } from 'lucide-react';
-import Button from '../atoms/Button';
+import ErrorButton from '../atoms/ErrorButton';
 
 interface ElementListProps {
   elements: Array<{ type: string; value: number; unit: string }>;
@@ -11,7 +11,7 @@ interface ElementListProps {
 export function ElementList({ elements, onRemove }: ElementListProps) {
   return (
     <div className="mt-8">
-      <h3 className="text-lg font-semibold mb-2">追加された素子:</h3>
+      <h3 className="flex justify-center text-muted-foreground text-xl font-bold">追加された素子</h3>
       <ul className="space-y-2">
         {elements.map((element, index) => (
           <li
@@ -26,13 +26,12 @@ export function ElementList({ elements, onRemove }: ElementListProps) {
                   : 'コンデンサ'}
               :{element.value} {element.unit}
             </span>
-            <Button
+            <ErrorButton
               onClick={() => onRemove(index)}
-              className="text-red-500 hover:text-red-700 bg-transparent hover:bg-transparent"
               icon={X}
             >
               <span className="sr-only">削除</span>
-            </Button>
+            </ErrorButton>
           </li>
         ))}
       </ul>

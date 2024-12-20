@@ -20,7 +20,7 @@ export function Input({
   return (
     <div>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="flex text-sm font-medium text-gray-700 mb-1">
           {label}
         </label>
       )}
@@ -29,7 +29,7 @@ export function Input({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${className}`}
+        className={`flex justify-center px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${className}`}
       />
     </div>
   );

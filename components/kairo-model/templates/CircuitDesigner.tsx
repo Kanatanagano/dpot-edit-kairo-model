@@ -6,7 +6,7 @@ import { ElementForm } from '../molecules/ElementForm';
 import { StrateCircuitDiagram } from '../organisms/StrateCircuitDiagram';
 import { ElementList } from '../organisms/ElementList';
 import Button from '../atoms/Button';
-import { EdaInput } from '../atoms/EdaInput';
+import CalculatedResult from '../organisms/CalculatedResult';
 
 type CircuitElement = {
   type: 'resistor' | 'inductor' | 'capacitor';
@@ -23,6 +23,7 @@ export default function CircuitDesigner() {
   });
   const [voltageType, setVoltageType] = useState<'DC' | 'AC'>('AC');
   const [voltageValue, setVoltageValue] = useState('5');
+  const [branchCount, setBranchCount] = useState('1');
   const [showCircuit, setShowCircuit] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -31,7 +32,7 @@ export default function CircuitDesigner() {
       setError('最大2つまでの素子しか追加できません。');
       return;
     }
-    if(!newElement.value) {
+    if (!newElement.value) {
       setError('値が選択されていません');
       return;
     }
@@ -41,8 +42,6 @@ export default function CircuitDesigner() {
       setError(null);
     }
   };
-
-  
 
   const handleRemoveElement = (index: number) => {
     const newElements = [...elements];
@@ -61,9 +60,11 @@ export default function CircuitDesigner() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      <div className="w-64 bg-white shadow-md p-4 overflow-y-auto">
-        <h2 className="text-xl font-bold mb-3">回路モデル作成</h2>
+    <div className="flex bg-gray-100">
+      <div className="felx items-center w-64 bg-white">
+        <h2 className="flex justify-center text-muted-foreground text-xl font-bold">
+          回路モデル作成
+        </h2>
         <ElementForm
           type={newElement.type}
           value={newElement.value}
@@ -85,7 +86,7 @@ export default function CircuitDesigner() {
           onAdd={handleAddElement}
           disabled={elements.length >= 2}
         />
-        <div className="mt-4">
+        <div className="flex justify-center space-y-8 m-2">
           <Select
             value={voltageType}
             onChange={(e) => setVoltageType(e.target.value as 'DC' | 'AC')}
@@ -96,7 +97,7 @@ export default function CircuitDesigner() {
             label="電源タイプ"
           />
         </div>
-        <div className="mt-4">
+        <div className="flex justify-center">
           <Input
             type="number"
             value={voltageValue}
@@ -104,59 +105,48 @@ export default function CircuitDesigner() {
             label="電圧 (V)"
           />
         </div>
-        <div className="mt-4">
-          <EdaInput
-          type="number"
-          placeholder='枝の数を入力'
-          max="2"
-          min="0"
+        <div className="flex justify-center">
+          <Input
+            type="number"
+            value={branchCount}
+            onChange={(e) => setBranchCount(e.target.value)}
+            label="枝の数"
           />
         </div>
-        <div className="mt-4">
+        <div className="flex justify-center mt-4">
           <Button onClick={handleGenerateCircuit} icon={Zap}>
             回路を生成
           </Button>
         </div>
         <ElementList elements={elements} onRemove={handleRemoveElement} />
         {error && (
-          <div className="mt-4 p-2 bg-red-100 border border-red-400 text-red-700 rounded flex items-center">
-            <AlertCircle className="h-5 w-5 mr-2" />
+          <div className="justify-center mt-4 p-2 bg-red-100 border border-red-400 text-red-700 rounded flex items-center">
+            <AlertCircle className="h-5 w-5 mr-2"/>
             {error}
           </div>
         )}
       </div>
-
-      <div className="flex-1 p-8 overflow-y-auto">
+      <div className="w-3/5 flex flex-col justify-center">
         {showCircuit && (
           <div className="bg-white shadow-md rounded-lg p-6">
-            <div className="border-2 border-gray-300 p-4 mb-4 aspect-w-2 aspect-h-1">
+            <div className="border-2 border-gray-300 p-4 mb-4">
               <StrateCircuitDiagram
                 elements={elements}
                 voltageType={voltageType}
                 voltageValue={voltageValue}
               />
             </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-2">回路要素一覧:</h3>
-              <ul className="list-disc list-inside">
-                <li>
-                  電源: {voltageValue}V {voltageType}
-                </li>
-                {elements.map((element, index) => (
-                  <li key={index}>
-                    {element.type === 'resistor'
-                      ? '抵抗'
-                      : element.type === 'inductor'
-                        ? 'コイル'
-                        : 'コンデンサ'}
-                    :{element.value} {element.unit}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         )}
       </div>
+     <div className='w-1/5 h-screen flex flex-col justify-center'>
+      {showCircuit && (
+        <div className="bg-white shadow-md rounded-lg">
+          <div className="">
+            <CalculatedResult/>
+          </div>
+        </div>
+          )};
+      </div>
     </div>
-  );
-}
+)};
