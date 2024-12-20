@@ -16,18 +16,18 @@ export default function Register() {
         ログイン
       </Link>
       <div className="h-full bg-muted lg:block hidden" />
-      
-        <div className="mx-auto w-full sm:w-[350px] flex flex-col justify-center space-y-6">
-          <div className="text-center space-u-2">
-            <h1 className="text-2xl font-semibold tracking-tight">
-              アカウントの作成
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              googleかgithubでアカウントを作成できます.
-            </p>
-          </div>
-          <UserAuthForm />
+
+      <div className="mx-auto w-full sm:w-[350px] flex flex-col justify-center space-y-6">
+        <div className="text-center space-u-2">
+          <h1 className="text-2xl font-semibold tracking-tight">
+            アカウントの作成
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            googleかgithubでアカウントを作成できます.
+          </p>
         </div>
+        <UserAuthForm />
       </div>
+    </div>
   );
 }
