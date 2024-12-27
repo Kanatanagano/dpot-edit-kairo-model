@@ -66,7 +66,7 @@ export function ParallelCircuitDiagram({
         stroke="black"
         strokeWidth="2"
       />
-      
+
       {/*Voltage source */}
       <VoltageSource
         type={voltageType}
@@ -74,7 +74,6 @@ export function ParallelCircuitDiagram({
         y={bottomWireY}
         value={voltageValue}
       />
-      
 
       {/* Circuit elements */}
       {elements.map((element, index) => (

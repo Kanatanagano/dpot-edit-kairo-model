@@ -7,33 +7,25 @@ interface VoltageSourceProps {
   value: string;
 }
 
-export function VoltageSource({ type, x, y, value}: VoltageSourceProps) {
+export function VoltageSource({ type, x, y, value }: VoltageSourceProps) {
   const radius = 15;
   const renderSource = () => {
     if (type === 'DC') {
       return (
         <g transform={`translate(${x}, ${y})`}>
-      <rect x={-7.5} y={-30} width="15" height="60" fill="white" />
-      <g transform={`rotate(-90 0 0)`}>
-        <line
-          x1={-10}
-          y1={-5}
-          x2={10}
-          y2={-5}
-          stroke="black"
-          strokeWidth="2"
-        />
-        <line
-          x1={-5}
-          y1={5}
-          x2={5}
-          y2={5}
-          stroke="black"
-          strokeWidth="2"
-        />
-      </g>
-
-    </g>
+          <rect x={-7.5} y={-30} width="15" height="60" fill="white" />
+          <g transform={`rotate(-90 0 0)`}>
+            <line
+              x1={-10}
+              y1={-5}
+              x2={10}
+              y2={-5}
+              stroke="black"
+              strokeWidth="2"
+            />
+            <line x1={-5} y1={5} x2={5} y2={5} stroke="black" strokeWidth="2" />
+          </g>
+        </g>
       );
     } else if (type === 'AC') {
       return (
@@ -57,9 +49,5 @@ export function VoltageSource({ type, x, y, value}: VoltageSourceProps) {
     }
   };
 
-  return (
-    <>
-      {renderSource()}
-    </>
-  );
+  return <>{renderSource()}</>;
 }
