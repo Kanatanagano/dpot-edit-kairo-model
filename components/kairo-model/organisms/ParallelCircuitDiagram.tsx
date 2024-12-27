@@ -1,4 +1,4 @@
-import { CircuitElement } from '../molecules/StrateCircuitElement';
+import { CircuitElement } from '../molecules/CircuitElement';
 import { VoltageSource } from '../molecules/VoltageSource';
 
 interface CircuitDiagramProps {
@@ -82,6 +82,7 @@ export function ParallelCircuitDiagram({
           type={element.type}
           x={circuitWidth / 2}
           y={index % 2 === 0 ? topWireY : middleWireY}
+          value={element.value}
         />
       ))}
     </svg>

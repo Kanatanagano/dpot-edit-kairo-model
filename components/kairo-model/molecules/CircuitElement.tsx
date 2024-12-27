@@ -1,21 +1,16 @@
 type CircuitElementProps = {
   type: 'resistor' | 'inductor' | 'capacitor';
   x: number;
-  y1: number;
-  y2: number;
+  y: number;
+  value: number;
 };
 
-export function ParallelCircuitDiagram({
-  type,
-  x,
-  y1,
-  y2,
-}: CircuitElementProps) {
+export function CircuitElement({ type, x, y, value }: CircuitElementProps) {
   const renderElement = () => {
     switch (type) {
       case 'resistor':
         return (
-          <g transform={`translate(${x}, ${y1})`}>
+          <g transform={`translate(${x}, ${y})`}>
             <rect
               x="-20"
               y="-10"
@@ -26,13 +21,13 @@ export function ParallelCircuitDiagram({
               strokeWidth="2"
             />
             <text x="0" y="30" textAnchor="middle" fontSize="12">
-              R
+              {value}R
             </text>
           </g>
         );
       case 'inductor':
         return (
-          <g transform={`translate(${x}, ${y1})`}>
+          <g transform={`translate(${x}, ${y})`}>
             <rect
               x="-20"
               y="-10"
@@ -48,13 +43,13 @@ export function ParallelCircuitDiagram({
               strokeWidth="2"
             />
             <text x="0" y="30" textAnchor="middle" fontSize="12">
-              L
+              {value}L
             </text>
           </g>
         );
       case 'capacitor':
         return (
-          <g transform={`translate(${x}, ${y1})`}>
+          <g transform={`translate(${x}, ${y})`}>
             <rect
               x="-12"
               y="-15"
@@ -80,7 +75,7 @@ export function ParallelCircuitDiagram({
               strokeWidth="2"
             />
             <text x="0" y="30" textAnchor="middle" fontSize="12">
-              C
+                {value}C
             </text>
           </g>
         );
