@@ -7,6 +7,7 @@ import { StrateCircuitDiagram } from '../organisms/StrateCircuitDiagram';
 import { ElementList } from '../organisms/ElementList';
 import Button from '../atoms/Button';
 import CalculatedResult from '../organisms/CalculatedResult';
+import { ParallelCircuitDiagram } from '../organisms/ParallelCircuitDiagram';
 
 type CircuitElement = {
   type: 'resistor' | 'inductor' | 'capacitor';
@@ -130,11 +131,18 @@ export default function CircuitDesigner() {
         {showCircuit && (
           <div className="bg-white shadow-md rounded-lg p-6">
             <div className="border-2 border-gray-300 p-4 mb-4">
-              <StrateCircuitDiagram
+              {branchCount === '1' ? (
+                <StrateCircuitDiagram
                 elements={elements}
                 voltageType={voltageType}
                 voltageValue={voltageValue}
-              />
+              />) : (
+                <ParallelCircuitDiagram
+                elements={elements}
+                voltageType={voltageType}
+                voltageValue={voltageValue}
+                />
+              )}
             </div>
           </div>
         )}

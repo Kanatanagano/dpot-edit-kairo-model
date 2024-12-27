@@ -1,4 +1,5 @@
-import { CircuitElement } from '../molecules/CircuitElement';
+import { CircuitElement } from '../molecules/StrateCircuitElement';
+import { VoltageSource } from '../molecules/VoltageSource';
 
 interface CircuitDiagramProps {
   elements: Array<{
@@ -57,37 +58,13 @@ export function StrateCircuitDiagram({
         strokeWidth="2"
       />
 
-      {/* DC Voltage source */}
-      <rect x="142" y="100" width="15" height="60" fill="white" />
-      <g transform={`rotate(-90 ${circuitWidth / 2} ${bottomWireY})`}>
-        <line
-          x1={circuitWidth / 2 - 10}
-          y1={bottomWireY - 5}
-          x2={circuitWidth / 2 + 10}
-          y2={bottomWireY - 5}
-          stroke="black"
-          strokeWidth="2"
-        />
-        <line
-          x1={circuitWidth / 2 - 5}
-          y1={bottomWireY + 5}
-          x2={circuitWidth / 2 + 5}
-          y2={bottomWireY + 5}
-          stroke="black"
-          strokeWidth="2"
-        />
-      </g>
-
-      {/* Voltage value and type text (not rotated) */}
-      <text
-        x={circuitWidth / 2}
-        y={bottomWireY + 35}
-        textAnchor="middle"
-        fontSize="12"
-      >
-        {voltageValue}V {voltageType}
-      </text>
-
+      {/*Voltage source */}
+            <VoltageSource
+              type={voltageType}
+              x={circuitWidth / 2}
+              y={bottomWireY}
+              value={voltageValue}
+            />
       {/* Circuit elements */}
       {elements.map((element, index) => (
         <CircuitElement

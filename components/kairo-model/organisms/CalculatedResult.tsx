@@ -16,7 +16,7 @@ export default function CalculatedResult() {
     };
 
     return (
-        <div className='flex flex-col items-center py-3'>
+        <div className='flex flex-col items-center justify-center h-screen py-3'>
             <h2 className='p-3'>回路の計算結果</h2>
             <Button
                 onClick={calculateResult}>回路計算
