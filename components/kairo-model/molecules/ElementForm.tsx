@@ -48,7 +48,6 @@ export function ElementForm({
       <Button onClick={onAdd} disabled={disabled} icon={PlusCircle}>
         素子を追加
       </Button>
-
     </div>
   );
 }

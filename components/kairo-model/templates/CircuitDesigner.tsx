@@ -122,7 +122,7 @@ export default function CircuitDesigner() {
         <ElementList elements={elements} onRemove={handleRemoveElement} />
         {error && (
           <div className="justify-center mt-4 p-2 bg-red-100 border border-red-400 text-red-700 rounded flex items-center">
-            <AlertCircle className="h-5 w-5 mr-2"/>
+            <AlertCircle className="h-5 w-5 mr-2" />
             {error}
           </div>
         )}
@@ -133,28 +133,31 @@ export default function CircuitDesigner() {
             <div className="border-2 border-gray-300 p-4 mb-4">
               {branchCount === '1' ? (
                 <StrateCircuitDiagram
-                elements={elements}
-                voltageType={voltageType}
-                voltageValue={voltageValue}
-              />) : (
+                  elements={elements}
+                  voltageType={voltageType}
+                  voltageValue={voltageValue}
+                />
+              ) : (
                 <ParallelCircuitDiagram
-                elements={elements}
-                voltageType={voltageType}
-                voltageValue={voltageValue}
+                  elements={elements}
+                  voltageType={voltageType}
+                  voltageValue={voltageValue}
                 />
               )}
             </div>
           </div>
         )}
       </div>
-     <div className='w-1/5 h-screen flex flex-col justify-center'>
-      {showCircuit && (
-        <div className="bg-white shadow-md rounded-lg">
-          <div className="">
-            <CalculatedResult/>
+      <div className="w-1/5 h-screen flex flex-col justify-center">
+        {showCircuit && (
+          <div className="bg-white shadow-md rounded-lg">
+            <div className="">
+              <CalculatedResult />
+            </div>
           </div>
-        </div>
-          )};
+        )}
+        ;
       </div>
     </div>
-)};
+  );
+}

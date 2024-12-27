@@ -11,7 +11,9 @@ interface ElementListProps {
 export function ElementList({ elements, onRemove }: ElementListProps) {
   return (
     <div className="mt-8">
-      <h3 className="flex justify-center text-muted-foreground text-xl font-bold">追加された素子</h3>
+      <h3 className="flex justify-center text-muted-foreground text-xl font-bold">
+        追加された素子
+      </h3>
       <ul className="space-y-2">
         {elements.map((element, index) => (
           <li
@@ -26,10 +28,7 @@ export function ElementList({ elements, onRemove }: ElementListProps) {
                   : 'コンデンサ'}
               :{element.value} {element.unit}
             </span>
-            <ErrorButton
-              onClick={() => onRemove(index)}
-              icon={X}
-            >
+            <ErrorButton onClick={() => onRemove(index)} icon={X}>
               <span className="sr-only">削除</span>
             </ErrorButton>
           </li>

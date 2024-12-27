@@ -59,12 +59,12 @@ export function StrateCircuitDiagram({
       />
 
       {/*Voltage source */}
-            <VoltageSource
-              type={voltageType}
-              x={circuitWidth / 2}
-              y={bottomWireY}
-              value={voltageValue}
-            />
+      <VoltageSource
+        type={voltageType}
+        x={circuitWidth / 2}
+        y={bottomWireY}
+        value={voltageValue}
+      />
       {/* Circuit elements */}
       {elements.map((element, index) => (
         <CircuitElement
