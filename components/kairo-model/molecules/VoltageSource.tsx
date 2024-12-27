@@ -25,6 +25,14 @@ export function VoltageSource({ type, x, y, value }: VoltageSourceProps) {
             />
             <line x1={-5} y1={5} x2={5} y2={5} stroke="black" strokeWidth="2" />
           </g>
+          <text
+            x={0}
+            y={radius + 20}
+            textAnchor="middle"
+            fontSize="12"
+          >
+            {value}V {type}
+          </text>
         </g>
       );
     } else if (type === 'AC') {
@@ -44,6 +52,14 @@ export function VoltageSource({ type, x, y, value }: VoltageSourceProps) {
             stroke="black"
             strokeWidth="2"
           />
+          <text
+            x={0}
+            y={radius + 20}
+            textAnchor="middle"
+            fontSize="12"
+          >
+            {value}V {type}
+          </text>
         </g>
       );
     }

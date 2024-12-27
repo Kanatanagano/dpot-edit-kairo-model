@@ -1,4 +1,4 @@
-import { CircuitElement } from '../molecules/StrateCircuitElement';
+import { CircuitElement } from '../molecules/CircuitElement';
 import { VoltageSource } from '../molecules/VoltageSource';
 
 interface CircuitDiagramProps {
@@ -72,6 +72,7 @@ export function StrateCircuitDiagram({
           type={element.type}
           x={30 + (index + 1) * elementSpacing}
           y={topWireY}
+          value={element.value}
         />
       ))}
     </svg>
