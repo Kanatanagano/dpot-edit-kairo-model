@@ -1,4 +1,5 @@
-import { CircuitElement } from '../molecules/CircuitElement';
+import { CircuitElement } from '../molecules/StrateCircuitElement';
+import { VoltageSource } from '../molecules/VoltageSource';
 
 interface CircuitDiagramProps {
   elements: Array<{
@@ -14,11 +15,12 @@ export function ParallelCircuitDiagram({
   voltageType,
   voltageValue,
 }: CircuitDiagramProps) {
-  const circuitWidth = 300;
-  const circuitHeight = 200;
-  const elementSpacing = 80;
+  const circuitWidth = 400;
+  const circuitHeight = 300;
+  const elementSpacing = 100;
   const topWireY = 50;
-  const bottomWireY = 150;
+  const bottomWireY = 250;
+  const middleWireY = 150;
 
   return (
     <svg
@@ -57,44 +59,30 @@ export function ParallelCircuitDiagram({
         strokeWidth="2"
       />
 
-      {/* DC Voltage source */}
-      <rect x="142" y="100" width="15" height="60" fill="white" />
-      <g transform={`rotate(-90 ${circuitWidth / 2} ${bottomWireY})`}>
-        <line
-          x1={circuitWidth / 2 - 10}
-          y1={bottomWireY - 5}
-          x2={circuitWidth / 2 + 10}
-          y2={bottomWireY - 5}
-          stroke="black"
-          strokeWidth="2"
-        />
-        <line
-          x1={circuitWidth / 2 - 5}
-          y1={bottomWireY + 5}
-          x2={circuitWidth / 2 + 5}
-          y2={bottomWireY + 5}
-          stroke="black"
-          strokeWidth="2"
-        />
-      </g>
-
-      {/* Voltage value and type text (not rotated) */}
-      <text
+      {/* Middle wire */}
+      <path
+        d={`M 30 ${middleWireY} H ${circuitWidth - 30}`}
+        fill="none"
+        stroke="black"
+        strokeWidth="2"
+      />
+      
+      {/*Voltage source */}
+      <VoltageSource
+        type={voltageType}
         x={circuitWidth / 2}
-        y={bottomWireY + 35}
-        textAnchor="middle"
-        fontSize="12"
-      >
-        {voltageValue}V {voltageType}
-      </text>
+        y={bottomWireY}
+        value={voltageValue}
+      />
+      
 
       {/* Circuit elements */}
       {elements.map((element, index) => (
         <CircuitElement
           key={index}
           type={element.type}
-          x={30 + (index + 1) * elementSpacing}
-          y={topWireY}
+          x={circuitWidth / 2}
+          y={index % 2 === 0 ? topWireY : middleWireY}
         />
       ))}
     </svg>
