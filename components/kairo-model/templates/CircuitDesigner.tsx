@@ -61,9 +61,9 @@ export default function CircuitDesigner() {
   };
 
   return (
-    <div className="flex bg-gray-100">
-      <div className="felx items-center w-64 bg-white">
-        <h2 className="flex justify-center text-muted-foreground text-xl font-bold">
+    <div className="flex justify-center bg-gray-100">
+      <div className="felx items-center w-80 bg-white p-8 border border-gray-200 h-auto">
+        <h2 className="flex justify-center text-3xl font-bold m-2">
           回路モデル作成
         </h2>
         <ElementForm
@@ -127,37 +127,39 @@ export default function CircuitDesigner() {
           </div>
         )}
       </div>
-      <div className="w-3/5 flex flex-col justify-center">
-        {showCircuit && (
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <div className="border-2 border-gray-300 p-4 mb-4">
-              {branchCount === '1' ? (
-                <StrateCircuitDiagram
+      
+        <div className="ml-10 w-2/4">
+          {showCircuit && (
+            <div className="bg-white p-6 border border-gray-200 rounded-lg">
+          {branchCount === '1' ? (
+            <StrateCircuitDiagram
+              elements={elements}
+              voltageType={voltageType}
+              voltageValue={voltageValue}
+            />
+          ) : (
+            <ParallelCircuitDiagram
+              elements={elements}
+              voltageType={voltageType}
+              voltageValue={voltageValue}
+            />
+          )}
+            </div>
+          )}
+            {showCircuit && (
+            <div className="mt-8 bg-slate-200 p-4 rounded-lg h-64 overflow-y-auto">
+              <h3 className="font-bold text-lg mb-2">計算結果</h3>
+              <div className="font-mono text-sm">
+                <CalculatedResult 
                   elements={elements}
                   voltageType={voltageType}
                   voltageValue={voltageValue}
+                  branchCount={branchCount}
                 />
-              ) : (
-                <ParallelCircuitDiagram
-                  elements={elements}
-                  voltageType={voltageType}
-                  voltageValue={voltageValue}
-                />
-              )}
+              </div>
             </div>
-          </div>
-        )}
+            )}
+        </div>
       </div>
-      <div className="w-1/5 h-screen flex flex-col justify-center">
-        {showCircuit && (
-          <div className="bg-white shadow-md rounded-lg">
-            <div className="">
-              <CalculatedResult />
-            </div>
-          </div>
-        )}
-        ;
-      </div>
-    </div>
   );
 }

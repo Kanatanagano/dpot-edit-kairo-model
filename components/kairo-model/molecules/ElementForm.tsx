@@ -30,7 +30,7 @@ export function ElementForm({
   const unit = type === 'resistor' ? 'Ω' : type === 'inductor' ? 'H' : 'F';
 
   return (
-    <div className="flex flex-col justify-center items-center space-y-4">
+    <div className="flex flex-col justify-center items-center space-y-2">
       <Select
         value={type}
         onChange={onTypeChange}
