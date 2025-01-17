@@ -1,5 +1,3 @@
-import { GitBranch, Github } from 'lucide-react';
-
 export const Icon = {
   github: () => (
     <div className="mr-2">
