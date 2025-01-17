@@ -17,7 +17,6 @@ export function ParallelCircuitDiagram({
 }: CircuitDiagramProps) {
   const circuitWidth = 400;
   const circuitHeight = 300;
-  const elementSpacing = 100;
   const topWireY = 50;
   const bottomWireY = 250;
   const middleWireY = 150;
