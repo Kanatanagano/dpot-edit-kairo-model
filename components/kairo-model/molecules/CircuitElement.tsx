@@ -43,7 +43,7 @@ export function CircuitElement({ type, x, y, value }: CircuitElementProps) {
               strokeWidth="2"
             />
             <text x="0" y="30" textAnchor="middle" fontSize="12">
-              {value}L
+              {value}mH
             </text>
           </g>
         );
@@ -75,7 +75,7 @@ export function CircuitElement({ type, x, y, value }: CircuitElementProps) {
               strokeWidth="2"
             />
             <text x="0" y="30" textAnchor="middle" fontSize="12">
-                {value}C
+                {value}μF
             </text>
           </g>
         );
