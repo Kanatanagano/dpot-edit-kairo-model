@@ -27,7 +27,7 @@ export function ElementForm({
     { value: 'capacitor', label: 'コンデンサ' },
   ];
 
-  const unit = type === 'resistor' ? 'Ω' : type === 'inductor' ? 'H' : 'F';
+  const unit = type === 'resistor' ? 'Ω' : type === 'inductor' ? 'mH' : 'μF';
 
   return (
     <div className="flex flex-col justify-center items-center space-y-2">
