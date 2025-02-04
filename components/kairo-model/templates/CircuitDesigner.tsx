@@ -77,8 +77,8 @@ export default function CircuitDesigner() {
                 e.target.value === 'resistor'
                   ? 'Ω'
                   : e.target.value === 'inductor'
-                    ? 'H'
-                    : 'F',
+                    ? 'mH'
+                    : 'μF',
             })
           }
           onValueChange={(e) =>
